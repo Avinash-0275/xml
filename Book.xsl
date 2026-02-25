@@ -1,43 +1,36 @@
-<?xml version="1.0"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
 <xsl:template match="/">
+
 <html>
 <head>
+    <title>Bookstore</title>
 </head>
 <body>
-<table border="1">
-<tr>
-<th bgColor="grey">title</th>
-<th bgColor="grey">author</th>
-<th bgColor="grey">ISBN</th>
-<th bgColor="grey">publisher</th>
-<th bgColor="grey">price</th>
-<th bgcolor="grey">edition</th>
-</tr>
-<xsl:for-each select="bookdetails/book">
-<tr>
-<td bgColor="blue">
-<b><xsl:value-of select="title"/></b>
-</td>
-<td bgColor="blue">
-<b><xsl:value-of select="author"/></b>
-</td>
-<td bgColor="blue">
-<b><xsl:value-of select="ISBN"/></b>
-</td>
-<td bgColor="blue">
-<b><xsl:value-of select="publisher"/></b>
-</td>
-<td bgColor="blue">
-<b><xsl:value-of select="price"/></b>
-</td>
-<td bgColor="blue">
-<b><xsl:value-of select="edition"/></b>
-</td>
-</tr>
-</xsl:for-each>
-</table>
+    <h2>Book Details</h2>
+
+    <table border="1">
+        <tr bgcolor="#cccccc">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+
+        <xsl:for-each select="bookstore/book">
+            <tr>
+                <td><xsl:value-of select="title"/></td>
+                <td><xsl:value-of select="author"/></td>
+                <td><xsl:value-of select="price"/></td>
+            </tr>
+        </xsl:for-each>
+
+    </table>
+
 </body>
 </html>
+
 </xsl:template>
 </xsl:stylesheet>
