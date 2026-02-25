@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XML Experiments</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 100px;
-            background-color: #f4f4f4;
+    <title>XML Projects</title>
+
+    <script>
+        function loadXMLDoc(filename) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", filename, false);
+            xhttp.send();
+            return xhttp.responseXML;
         }
-        h1 {
-            color: #333;
+
+        function displayResult(xmlFile, xslFile, elementId) {
+            var xml = loadXMLDoc(xmlFile);
+            var xsl = loadXMLDoc(xslFile);
+
+            if (window.ActiveXObject || "ActiveXObject" in window) {
+                var ex = xml.transformNode(xsl);
+                document.getElementById(elementId).innerHTML = ex;
+            } else if (document.implementation && document.implementation.createDocument) {
+                var xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+                var resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById(elementId).appendChild(resultDocument);
+            }
         }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 18px;
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            border-radius: 8px;
+
+        window.onload = function () {
+            displayResult("Bookstore.xml", "Book.xsl", "books");
+            displayResult("users.xml", "users.xsl", "users");
         }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    </script>
+
 </head>
+
 <body>
 
-    <h1>XML Experiments</h1>
+    <h2>Book Details</h2>
+    <div id="books"></div>
 
-    <a class="btn" href="users.xml">Experiment 1 - Users</a>
-    <a class="btn" href="Bookstore.xml">Experiment 2 - Bookstore</a>
+    <hr>
+
+    <h2>User Details</h2>
+    <div id="users"></div>
 
 </body>
 </html>
