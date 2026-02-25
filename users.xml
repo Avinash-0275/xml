@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="users.xsl"?>
+
+<users>
+    <user>   <id>1</id>
+             <name>Siva</name>
+             <role>Student</role>
+             <dept>CSE</dept>    </user>
+
+    <user>   <id>2</id>
+             <name>Ramesh</name>
+             <role>Faculty</role>
+             <dept>ECE</dept>    </user>
+
+    <user>  <id>3</id>
+            <name>Kriti</name>
+            <role>Student</role>
+            <dept>IT</dept>      </user>
+
+    <user>   <id>4</id>
+             <name>Sneha</name>
+             <role>Student</role>
+             <dept>CSE</dept>     </user>
+
+    <user>   <id>5</id>
+             <name>Kiran</name>
+             <role>Faculty</role>
+             <dept>EEE</dept>     </user>
+
+    <user>   <id>6</id>
+             <name>Akhil</name>
+             <role>Student</role>
+             <dept>Civil</dept>   </user>
+
+    <user>   <id>7</id>
+             <name>Madhu</name>
+             <role>Student</role>
+             <dept>Mech</dept>    </user>
+
+    <user>  <id>8</id>
+            <name>Divya</name>
+            <role>Faculty</role>
+            <dept>CSE</dept>     </user>
+
+    <user>  <id></id>
+            <name>Vijay</name>
+            <role>Student</role>
+            <dept>ECE</dept>    </user>
+
+    <user>  <id>10</id>
+            <name>Pooja</name>
+            <role>Student</role>
+            <dept>IT</dept>     </user>
+</users>
